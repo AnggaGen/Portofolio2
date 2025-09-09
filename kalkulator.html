@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Luas Bangun Datar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Times New Roman ', sans-serif; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+  <div class="max-w-md w-full bg-white p-6 rounded-xl shadow-lg">
+    <h1 class="text-2xl font-bold mb-6 text-center text-red-600">Kalkulator Luas</h1>
+
+    <!-- Dropdown Pilihan -->
+    <div class="mb-4">
+      <label for="bangun-datar" class="block text-red-700 font-semibold mb-1">Pilih Bangun Datar</label>
+      <select id="bangun-datar" class="w-full p-2 border border-red-300 rounded-md focus:ring-2 focus:ring-blue-400">
+        <option value="persegi">Persegi</option>
+        <option value="persegi-panjang">Persegi Panjang</option>
+        <option value="segitiga">Segitiga</option>
+        <option value="lingkaran">Lingkaran</option>
+        <option value="jajar-genjang">Jajar Genjang</option>
+      </select>
+    </div>
+
+    <!-- Persegi -->
+    <div id="form-persegi" class="kalkulator-form">
+      <label class="block text-red-700 font-semibold mb-1">Sisi</label>
+      <input type="number" id="sisi-persegi" class="w-full p-2 border border-red-300 rounded-md" placeholder="Masukkan sisi">
+    </div>
+
+    <!-- Persegi Panjang -->
+    <div id="form-persegi-panjang" class="kalkulator-form hidden">
+      <label class="block text-gray-700 font-semibold mb-1">Panjang</label>
+      <input type="number" id="panjang-pp" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Masukkan panjang">
+      <label class="block text-gray-700 font-semibold mb-1">Lebar</label>
+      <input type="number" id="lebar-pp" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan lebar">
+    </div>
+
+    <!-- Segitiga -->
+    <div id="form-segitiga" class="kalkulator-form hidden">
+      <label class="block text-gray-700 font-semibold mb-1">Alas</label>
+      <input type="number" id="alas-segitiga" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Masukkan alas">
+      <label class="block text-gray-700 font-semibold mb-1">Tinggi</label>
+      <input type="number" id="tinggi-segitiga" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan tinggi">
+    </div>
+
+    <!-- Lingkaran -->
+    <div id="form-lingkaran" class="kalkulator-form hidden">
+      <label class="block text-gray-700 font-semibold mb-1">Jari-jari</label>
+      <input type="number" id="jari-lingkaran" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan jari-jari">
+    </div>
+
+    <!-- Jajar Genjang -->
+    <div id="form-jajar-genjang" class="kalkulator-form hidden">
+      <label class="block text-gray-700 font-semibold mb-1">Alas</label>
+      <input type="number" id="alas-jg" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Masukkan alas">
+      <label class="block text-gray-700 font-semibold mb-1">Tinggi</label>
+      <input type="number" id="tinggi-jg" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Masukkan tinggi">
+    </div>
+
+    <!-- Tombol Hitung -->
+    <button id="hitung-btn" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded-md">
+      Hitung
+    </button>
+
+    <!-- Hasil -->
+    <div id="hasil" class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md text-center hidden">
+      <p class="font-semibold text-red-700">Hasil Luas:</p>
+      <p id="hasil-teks" class="text-xl font-bold text-red-600"></p>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#bangun-datar').on('change', function() {
+        $('.kalkulator-form').addClass('hidden');
+        const selectedForm = $(this).val();
+        $('#form-' + selectedForm).removeClass('hidden');
+        $('#hasil').addClass('hidden');
+        $('#hasil-teks').text('');
+      });
+
+      $('#hitung-btn').on('click', function() {
+        const bangunDatar = $('#bangun-datar').val();
+        let luas;
+
+        if (bangunDatar === 'persegi') {
+          const sisi = parseFloat($('#sisi-persegi').val());
+          if (sisi > 0) luas = sisi * sisi;
+          else return alert('Masukkan sisi yang valid!');
+        } 
+        else if (bangunDatar === 'persegi-panjang') {
+          const p = parseFloat($('#panjang-pp').val());
+          const l = parseFloat($('#lebar-pp').val());
+          if (p > 0 && l > 0) luas = p * l;
+          else return alert('Masukkan panjang & lebar yang valid!');
+        } 
+        else if (bangunDatar === 'segitiga') {
+          const a = parseFloat($('#alas-segitiga').val());
+          const t = parseFloat($('#tinggi-segitiga').val());
+          if (a > 0 && t > 0) luas = 0.5 * a * t;
+          else return alert('Masukkan alas & tinggi yang valid!');
+        } 
+        else if (bangunDatar === 'lingkaran') {
+          const r = parseFloat($('#jari-lingkaran').val());
+          if (r > 0) luas = Math.PI * r * r;
+          else return alert('Masukkan jari-jari yang valid!');
+        } 
+        else if (bangunDatar === 'jajar-genjang') {
+          const a = parseFloat($('#alas-jg').val());
+          const t = parseFloat($('#tinggi-jg').val());
+          if (a > 0 && t > 0) luas = a * t;
+          else return alert('Masukkan alas & tinggi yang valid!');
+        }
+
+        $('#hasil-teks').text(luas.toFixed(2));
+        $('#hasil').removeClass('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>
