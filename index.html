@@ -15,15 +15,15 @@
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Header -->
-  <header class="bg-blue-600 text-white py-12 text-center">
+  <header class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-12 text-center shadow-lg">
     <div class="container mx-auto">
       <div class="flex justify-center mb-4">
         <img src="images/profile.jpg" alt="Foto Profil" id="profilePic" 
-             class="w-32 h-32 rounded-full shadow-lg cursor-pointer object-cover object-center">
+             class="w-32 h-32 rounded-full shadow-lg cursor-pointer object-cover object-center border-4 border-white">
       </div>
       <h1 class="text-3xl font-bold">Ida Bagus Putu Angga Wicaksana</h1>
       <p class="mt-2 text-lg">Mahasiswa Ilmu Komputer | Web Developer</p>
-      <a href="#about" class="mt-4 inline-block bg-white text-blue-600 px-4 py-2 rounded-full font-medium shadow hover:bg-gray-200 transition">
+      <a href="#about" class="mt-4 inline-block bg-white text-blue-600 px-5 py-2 rounded-full font-medium shadow hover:bg-gray-200 transition">
         Lihat Portofolio
       </a>
     </div>
@@ -31,48 +31,65 @@
 
   <!-- Tentang Saya -->
   <section id="about" class="py-12 max-w-3xl mx-auto px-6">
-    <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
-    <p>
+    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Tentang Saya</h2>
+    <p class="leading-relaxed">
       Saya adalah seorang mahasiswa ilmu komputer yang fokus pada pengembangan web dan memiliki minat besar terhadap dunia jaringan. 
       Saya berkomitmen untuk terus belajar dan mengembangkan kemampuan teknis serta soft skill dalam bidang teknologi informasi.
     </p>
   </section>
 
-<!-- Project -->
-<section id="skills" class="py-12 bg-white shadow-inner">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-2xl font-semibold mb-6">Project</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+  <!-- Keahlian -->
+  <section id="skills" class="py-12 bg-white shadow-inner">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-semibold mb-6 text-blue-600">Keahlian</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+        <div class="p-4 bg-blue-50 rounded-lg shadow hover:shadow-md transition">
+          <p class="font-semibold text-gray-700">HTML & CSS</p>
+        </div>
+        <div class="p-4 bg-blue-50 rounded-lg shadow hover:shadow-md transition">
+          <p class="font-semibold text-gray-700">JavaScript</p>
+        </div>
+        <div class="p-4 bg-blue-50 rounded-lg shadow hover:shadow-md transition">
+          <p class="font-semibold text-gray-700">Java</p>
+        </div>
+        <div class="p-4 bg-blue-50 rounded-lg shadow hover:shadow-md transition">
+          <p class="font-semibold text-gray-700">Networking</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Project -->
+  <section id="projects" class="py-12 max-w-3xl mx-auto px-6">
+    <h2 class="text-2xl font-semibold mb-6 text-blue-600">Project</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
       <!-- Link ke file lokal -->
       <a href="kalkulator.html" 
          target="_blank" 
-         class="bg-blue-100 text-blue-700 py-3 rounded-lg font-medium hover:bg-blue-200 transition">
+         class="p-4 bg-blue-100 text-blue-700 rounded-lg font-medium hover:bg-blue-200 transition shadow">
         Kalkulator Bangun Ruang
       </a>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-gray-200 text-center py-6 mt-12">
-  <p>Kontak: 
-    <a href="mailto:callmeangga2021@gmail.com" class="text-blue-600 hover:underline">
-      callmeangga2021@gmail.com
-    </a>
-  </p>
-  <p>LinkedIn: 
-    <a href="https://www.linkedin.com/in/bagus-angga-90047a383/" target="_blank" class="text-blue-600 hover:underline">
-      linkedin.com/in/bagus-angga-90047a383/
-    </a>
-  </p>
-  <p>GitHub: 
-    <a href="https://github.com/AnggaGen" target="_blank" class="text-blue-600 hover:underline">
-      github.com/AnggaGen
-    </a>
-  </p>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-center py-6 mt-12">
+    <p>Kontak: 
+      <a href="mailto:callmeangga2021@gmail.com" class="text-blue-600 hover:underline">
+        callmeangga2021@gmail.com
+      </a>
+    </p>
+    <p>LinkedIn: 
+      <a href="https://www.linkedin.com/in/bagus-angga-90047a383/" target="_blank" class="text-blue-600 hover:underline">
+        linkedin.com/in/bagus-angga-90047a383/
+      </a>
+    </p>
+    <p>GitHub: 
+      <a href="https://github.com/AnggaGen" target="_blank" class="text-blue-600 hover:underline">
+        github.com/AnggaGen
+      </a>
+    </p>
+  </footer>
 
   <!-- Modal Foto -->
   <div id="photoModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
@@ -103,4 +120,3 @@
   </script>
 </body>
 </html>
-
